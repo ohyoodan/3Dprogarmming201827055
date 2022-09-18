@@ -24,6 +24,7 @@
     <ProjectGuid>{1d4c8dcf-8785-4422-a550-a166a04c1500}</ProjectGuid>
     <RootNamespace>My3Dprogarmming3주차201827055</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>3주차</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
