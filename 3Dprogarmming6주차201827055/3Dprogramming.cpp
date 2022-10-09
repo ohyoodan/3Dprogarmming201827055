@@ -93,7 +93,7 @@ void Init()
         star[i].g = 0.0f;
         star[i].b = theta / 360.0f;
         star[i].a = 0.7f;
-
+        
 
         transformedStar[i] = star[i];
 
@@ -245,7 +245,7 @@ int main(void)
 {
     Init();
     Update();
-    Release();
+    Release();//풀어주다, 석방하다.
 
     exit(EXIT_SUCCESS);
 }
