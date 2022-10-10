@@ -41,9 +41,13 @@ Transform transform;  //world 행렬이 될 transform
 
 //<문제>////////전역변수 쓰는곳////////////////////////////////////////////////////////////
 
+Transform transformuse;
 
-
-
+float move=0;
+int rotation=0;
+float scale=0;
+float chkcount = 0;
+bool big = false;
  //////////////////////////////////////////////////////////////////////////////////////////
 
 void Init();
@@ -145,6 +149,7 @@ void Update()
 {
     while (!glfwWindowShouldClose(window))
     {
+        
         //Update로직
         //<문제>//////////////////////////////////////////////////////////////////////////////////
 
@@ -152,15 +157,35 @@ void Update()
         //2. Rotation 을 프레임당 1도씩 누적시켜서 물체를 회전시켜보세요.
         //3. Scale은 초당 0.01씩 최대 1.3배까지 늘어났다가 0.7배까지 줄어들도록 만드시오 (반복)
         //   (1.3배 이상이 되면 줄어들고 0.7배 이하가 되면 다시 늘어나게 만드시오)
+        chkcount += 0.01f;
+        transformuse.translate = glm::mat3(
+            1, 0, 0,
+            0, 1, 0,
+            0, 0, 1
+        ); 
+        transformuse.rotation = glm::mat3(
+            glm::cos(glm::radians(0.0f)), -glm::sin(glm::radians(0.0f)), 0,
+            glm::sin(glm::radians(0.0f)), glm::cos(glm::radians(0.0f)), 0,
+            0, 0, 1
+        );
+        transformuse.scale = glm::mat3(
+            1, 0, 0,
+            0, 1, 0,
+            0, 0, 1
+        );
 
-
+        if (chkcount < 1.3f&& (big == false)) {
+            big = true;
+        }
+        else if (chkcount == 0.7 && (big == true)) {
+            big = false;
+        }
         //////////////////////////////////////////////////////////////////////////////////////////
 
         for (int i = 0; i < 360; i++)
         {
-            transformedCircle[i].pos = transform.translate * transform.rotation * transform.scale * circle[i].pos;
+            transformedCircle[i].pos = (transform.translate*transformuse.translate) * (transform.rotation*transformuse.rotation) * (transform.scale*transformuse.scale) * circle[i].pos;
             
-
         }
 
         for (int i = 0; i < 5; i++)
@@ -169,6 +194,7 @@ void Update()
         }
 
 
+        
 
         //색 초기화
         glClearColor(.0f, 0.0f, 0.0f, 0.1f);
