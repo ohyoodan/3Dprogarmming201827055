@@ -159,6 +159,8 @@ void Update()
         for (int i = 0; i < 360; i++)
         {
             transformedCircle[i].pos = transform.translate * transform.rotation * transform.scale * circle[i].pos;
+            
+
         }
 
         for (int i = 0; i < 5; i++)
