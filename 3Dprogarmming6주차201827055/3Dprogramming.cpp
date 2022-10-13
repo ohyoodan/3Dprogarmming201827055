@@ -176,13 +176,13 @@ void Update()
             scalechk = 1;//작아지기
         }
         if (scalechk == 1 ) {
-            scale -= 0.001f;
+            scale -= 0.009f;
         }
         else if (scalechk == 0) {
-            scale += 0.001f;
+            scale += 0.009f;
         }
-        if (rotation >= 360) {
-            rotation = 0;
+        if (rotation >= 360) {//회전 초기화
+            rotation = 1;
         }
         transformuse.scale = glm::mat3(//스케일
             scale, 0, 0,
@@ -275,10 +275,9 @@ void Update()
             this_thread::sleep_for(chrono::milliseconds((int)(((1.0f / 60.0f) - renderDuration.count()) * 1000)));
         string fps_s = "FPS : " + to_string(fps);
         cout << fps_s << endl;
-        string s = to_string(scale);
-        cout << s << endl;
-        cout << chk << endl;
-        cout << scalechk << endl;
+        
+        cout << rotation << endl;
+        
         
         
         
