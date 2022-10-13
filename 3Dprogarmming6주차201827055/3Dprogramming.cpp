@@ -47,7 +47,7 @@ float move=0;
 int rotation=0;
 float scale=0;
 float chkcount = 0;
-bool big = false;
+bool big = true;
  //////////////////////////////////////////////////////////////////////////////////////////
 
 void Init();
@@ -157,7 +157,24 @@ void Update()
         //2. Rotation 을 프레임당 1도씩 누적시켜서 물체를 회전시켜보세요.
         //3. Scale은 초당 0.01씩 최대 1.3배까지 늘어났다가 0.7배까지 줄어들도록 만드시오 (반복)
         //   (1.3배 이상이 되면 줄어들고 0.7배 이하가 되면 다시 늘어나게 만드시오)
-        chkcount += 0.01f;
+        if (big==true) {
+            chkcount += 0.1f;
+            transformuse.scale = glm::mat3{
+                chkcount,chkcount,0,
+                chkcount,chkcount,0,
+                0,0,1
+            };
+        } else if (big == false) {
+            chkcount -= 0.1f;
+            transformuse.scale = glm::mat3{
+                chkcount,chkcount,0,
+                chkcount,chkcount,0,
+                0,0,1
+            };
+
+            
+        }
+        
         transformuse.translate = glm::mat3(
             1, 0, 0,
             0, 1, 0,
@@ -169,22 +186,25 @@ void Update()
             0, 0, 1
         );
         transformuse.scale = glm::mat3(
-            1, 0, 0,
-            0, 1, 0,
+            chkcount, 0, 0,
+            0, chkcount, 0,
             0, 0, 1
         );
 
-        if (chkcount < 1.3f&& (big == false)) {
-            big = true;
-        }
-        else if (chkcount == 0.7 && (big == true)) {
+        if (chkcount < 1.3f&& (big == true)) {
             big = false;
         }
+        else if (chkcount > 0.7 && (big == false)) {
+            big = true;
+        }
+
+        
         //////////////////////////////////////////////////////////////////////////////////////////
 
         for (int i = 0; i < 360; i++)
         {
             transformedCircle[i].pos = (transform.translate*transformuse.translate) * (transform.rotation*transformuse.rotation) * (transform.scale*transformuse.scale) * circle[i].pos;
+            //transformedCircle[i].pos = (transform.translate * transformuse.translate) * (transform.rotation * transformuse.rotation) * transform.scale  * circle[i].pos;
             
         }
 
