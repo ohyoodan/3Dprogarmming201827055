@@ -44,7 +44,7 @@ Transform transform;  //world 행렬이 될 transform
 Transform transformuse;
 
 float Tmove=0;
-int rotation=0;
+float rotation=0;
 float scale=1;
 
 bool chk = true; //스케일 처음인가?
@@ -67,7 +67,7 @@ void Init()
     glfwSetErrorCallback(error_callback);
     if (!glfwInit())
         exit(EXIT_FAILURE);
-    window = glfwCreateWindow(720, 720, "Simple example", NULL, NULL);
+    window = glfwCreateWindow(1440, 1440, "Simple example", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -169,10 +169,10 @@ void Update()
         else if (chk == 1) {
             scale += 0.001f;
         }
-        if (chk == 0&&scale<0.7) {
+        if (chk == 0&&scale<=0.7) {
             scalechk = 0;//커지기
         }
-        else if (chk ==0 && (scale > 1.3f)) {
+        else if (chk ==0 && (scale >= 1.3f)) {
             scalechk = 1;//작아지기
         }
         if (scalechk == 1 ) {
@@ -181,10 +181,9 @@ void Update()
         else if (scalechk == 0) {
             scale += 0.001f;
         }
-        //else if (scale == 1||scale ==1.1||scale==1.2||scale==0.9||scale==0.8) {
-          //  scale += 0.1f;
-        //}
-        
+        if (rotation >= 360) {
+            rotation = 0;
+        }
         transformuse.scale = glm::mat3(//스케일
             scale, 0, 0,
             0, scale, 0,
@@ -196,21 +195,21 @@ void Update()
            0,1,0,
            Tmove,0,1
         };
-        
-        transformuse.rotation = glm::mat3(
-            glm::cos(glm::radians(0.0f)), -glm::sin(glm::radians(0.0f)), 0,
-            glm::sin(glm::radians(0.0f)), glm::cos(glm::radians(0.0f)), 0,
+
+        transformuse.rotation = glm::mat3(//회전
+            glm::cos(glm::radians(rotation)), -glm::sin(glm::radians(rotation)), 0,
+            glm::sin(glm::radians(rotation)), glm::cos(glm::radians(rotation)), 0,
             0, 0, 1
         );
         for (int i = 0; i < 360; i++)
         {
-            transformedCircle[i].pos = (transformuse.translate) * (transform.rotation*transformuse.rotation) * (transform.scale*transformuse.scale) * circle[i].pos;
+            transformedCircle[i].pos = transformuse.translate *transformuse.rotation * transformuse.scale * circle[i].pos;
              //transformedCircle[i].pos = transform.translate * transform.rotation * transform.scale * circle[i].pos;
         }
 
         for (int i = 0; i < 5; i++)
         {
-            transformedStar[i].pos = transformuse.translate * transform.rotation * transform.scale * star[i].pos;
+            transformedStar[i].pos = transformuse.translate * transformuse.rotation * transformuse.scale * star[i].pos;
             //원본 transformedStar[i].pos = transform.translate * transform.rotation * transform.scale * star[i].pos;
         }
 
