@@ -43,11 +43,13 @@ Transform transform;  //world 행렬이 될 transform
 
 Transform transformuse;
 
-float move=0;
+float Tmove=0;
 int rotation=0;
-float scale=0;
-float chkcount = 0;
-bool big = true;
+float scale=1;
+
+bool chk = true; //스케일 처음인가?
+bool scalechk = 0;//스케일이 작아져야하는가? 커져야하는가?
+
  //////////////////////////////////////////////////////////////////////////////////////////
 
 void Init();
@@ -149,68 +151,67 @@ void Update()
 {
     while (!glfwWindowShouldClose(window))
     {
-        
+
         //Update로직
         //<문제>//////////////////////////////////////////////////////////////////////////////////
 
         //1. translate 를 프레임당 오른쪽으로 0.001씩 누적시켜서 물체를 이동해보세요.
         //2. Rotation 을 프레임당 1도씩 누적시켜서 물체를 회전시켜보세요.
-        //3. Scale은 초당 0.01씩 최대 1.3배까지 늘어났다가 0.7배까지 줄어들도록 만드시오 (반복)
-        //   (1.3배 이상이 되면 줄어들고 0.7배 이하가 되면 다시 늘어나게 만드시오)
-        if (big==true) {
-            chkcount += 0.1f;
-            transformuse.scale = glm::mat3{
-                chkcount,chkcount,0,
-                chkcount,chkcount,0,
-                0,0,1
-            };
-        } else if (big == false) {
-            chkcount -= 0.1f;
-            transformuse.scale = glm::mat3{
-                chkcount,chkcount,0,
-                chkcount,chkcount,0,
-                0,0,1
-            };
+        //3. Scale은 프레임씩 최대 1.3배까지 늘어났다가 0.7배까지 줄어들도록 만드시오 (반복)
+        //   (1.3배 이상이 되면 줄어들고 0.7배 이하가 되면 다시 늘어나게 만드시오)                         
 
-            
+        //////////////////////////////////////////////////////////////////////////////////////////
+        Tmove += 0.001;
+        rotation += 1;
+        if ((chk == 1) && scale > 1.3f) {
+            chk = 0;
         }
+        else if (chk == 1) {
+            scale += 0.001f;
+        }
+        if (chk == 0&&scale<0.7) {
+            scalechk = 0;//커지기
+        }
+        else if (chk ==0 && (scale > 1.3f)) {
+            scalechk = 1;//작아지기
+        }
+        if (scalechk == 1 ) {
+            scale -= 0.001f;
+        }
+        else if (scalechk == 0) {
+            scale += 0.001f;
+        }
+        //else if (scale == 1||scale ==1.1||scale==1.2||scale==0.9||scale==0.8) {
+          //  scale += 0.1f;
+        //}
         
-        transformuse.translate = glm::mat3(
-            1, 0, 0,
-            0, 1, 0,
+        transformuse.scale = glm::mat3(//스케일
+            scale, 0, 0,
+            0, scale, 0,
             0, 0, 1
-        ); 
+        );
+        
+        transformuse.translate = glm::mat3{//이동
+           1,0,0,
+           0,1,0,
+           Tmove,0,1
+        };
+        
         transformuse.rotation = glm::mat3(
             glm::cos(glm::radians(0.0f)), -glm::sin(glm::radians(0.0f)), 0,
             glm::sin(glm::radians(0.0f)), glm::cos(glm::radians(0.0f)), 0,
             0, 0, 1
         );
-        transformuse.scale = glm::mat3(
-            chkcount, 0, 0,
-            0, chkcount, 0,
-            0, 0, 1
-        );
-
-        if (chkcount < 1.3f&& (big == true)) {
-            big = false;
-        }
-        else if (chkcount > 0.7 && (big == false)) {
-            big = true;
-        }
-
-        
-        //////////////////////////////////////////////////////////////////////////////////////////
-
         for (int i = 0; i < 360; i++)
         {
-            transformedCircle[i].pos = (transform.translate*transformuse.translate) * (transform.rotation*transformuse.rotation) * (transform.scale*transformuse.scale) * circle[i].pos;
-            //transformedCircle[i].pos = (transform.translate * transformuse.translate) * (transform.rotation * transformuse.rotation) * transform.scale  * circle[i].pos;
-            
+            transformedCircle[i].pos = (transformuse.translate) * (transform.rotation*transformuse.rotation) * (transform.scale*transformuse.scale) * circle[i].pos;
+             //transformedCircle[i].pos = transform.translate * transform.rotation * transform.scale * circle[i].pos;
         }
 
         for (int i = 0; i < 5; i++)
         {
-            transformedStar[i].pos = transform.translate * transform.rotation * transform.scale * star[i].pos;
+            transformedStar[i].pos = transformuse.translate * transform.rotation * transform.scale * star[i].pos;
+            //원본 transformedStar[i].pos = transform.translate * transform.rotation * transform.scale * star[i].pos;
         }
 
 
@@ -275,6 +276,13 @@ void Update()
             this_thread::sleep_for(chrono::milliseconds((int)(((1.0f / 60.0f) - renderDuration.count()) * 1000)));
         string fps_s = "FPS : " + to_string(fps);
         cout << fps_s << endl;
+        string s = to_string(scale);
+        cout << s << endl;
+        cout << chk << endl;
+        cout << scalechk << endl;
+        
+        
+        
 
     }
 }

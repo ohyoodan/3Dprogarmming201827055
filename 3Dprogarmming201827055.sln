@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3주차", "3Dprogarmming3�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6주차", "3Dprogarmming6주차201827055\3Dprogarmming6주차201827055.vcxproj", "{6D9B746C-18AE-4BE7-BC0B-E50B5BD50F58}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TEST", "TEST\TEST.vcxproj", "{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,14 +31,6 @@ Global
 		{6D9B746C-18AE-4BE7-BC0B-E50B5BD50F58}.Release|x64.Build.0 = Release|x64
 		{6D9B746C-18AE-4BE7-BC0B-E50B5BD50F58}.Release|x86.ActiveCfg = Release|Win32
 		{6D9B746C-18AE-4BE7-BC0B-E50B5BD50F58}.Release|x86.Build.0 = Release|Win32
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Debug|x64.ActiveCfg = Debug|x64
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Debug|x64.Build.0 = Debug|x64
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Debug|x86.ActiveCfg = Debug|Win32
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Debug|x86.Build.0 = Debug|Win32
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Release|x64.ActiveCfg = Release|x64
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Release|x64.Build.0 = Release|x64
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Release|x86.ActiveCfg = Release|Win32
-		{0C8329F5-DD7B-44E3-BFF4-F95B3E3C6684}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
