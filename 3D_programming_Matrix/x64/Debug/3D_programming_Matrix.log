@@ -1,2 +1,5 @@
 ﻿  3D_programming_Matrix.cpp
+D:\3D프로그래밍\201827055\3Dprogarmming201827055\3D_programming_Matrix\MuSoenMath.h(33,1): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+D:\3D프로그래밍\201827055\3Dprogarmming201827055\3D_programming_Matrix\MuSoenMath.h(36,9): warning C4101: 'sin' :참조되지 않은 지역 변수입니다.
+D:\3D프로그래밍\201827055\3Dprogarmming201827055\3D_programming_Matrix\MuSoenMath.h(35,9): warning C4101: 'cos' :참조되지 않은 지역 변수입니다.
   3D_programming_Matrix.vcxproj -> D:\3D프로그래밍\201827055\3Dprogarmming201827055\x64\Debug\3D_programming_Matrix.exe

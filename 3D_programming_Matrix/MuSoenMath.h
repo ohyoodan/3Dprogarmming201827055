@@ -9,112 +9,143 @@ using namespace std;
 
 
 namespace MuSoenMath {
-
-
-	class vec3 {
-	public: float vec[3][1]{
-		{0},
-		{0},
-		{1}
-	};
-	public: float po[3][3]{
-			  {},
-			  {},
-			  {}
-	};
-		  // m*n 행렬 m행 i열 : 3행 1열 배열 
-		  vec3() {
-
-		  }
-		  ~vec3() {
-
-		  }
-
-	public: void showVec3() {
-		cout << "" << endl;
-	}
-
-		  vec3 operator*(vec3& ref) {
-			  for (int i = 0; i < 3; i++) {
-				  for (int j = 0; j < 3; j++) {
-					  for (int k = 0; k < 3; k++) {
-						  ref.vec[i][j] += ref.vec[i][k] * ref.vec[k][j];
-					  }
-				  }
-			  }
-		  }
-	};
-
-
-
-
-
 	class mat3 {
-		//초기화
+
 	public: float  mat[3][3]{
-		{1,0,0},
-		{0,1,0},
-		{0,0,1}
+		{0,0,0},
+		{0,0,0},
+		{0,0,0}
 	};
 
 		  mat3() {
-			  
-				  
-			  
+			  mat[0][0] = 1;
+			  mat[1][1] = 1;
+			  mat[2][2] = 1;
 
 		  }
+
 		  ~mat3() {
 
 		  }
 
 	public: void Rotateinput(float Degree) {
 		// 60분법을 호도법으로 바꾸고 기입
-		/*float PI = 3.141592;
+		float PI = 3.141592;
 		float theta = (PI / 180) * (Degree);
 		float cos;
 		float sin;
-		mat[0][0] = cos;
-		mat[1][1] = cos;
-		mat[1][0] = sin;
-		mat[0][1] = (-1 * sin);*/
+		mat[0][0] = 0; //cos;
+		mat[1][1] = -1;// cos;
+		mat[1][0] = 1;//sin;
+		mat[0][1] = 0;//(-1 * sin);
 	}
 
 	public:void Scaleinput(float scale) {
 		//단순히 비율 증가 시  만약 x,y따로 하고싶으면 [1][1]위치에 y를 배치
 		mat[0][0] = scale;
 		mat[1][1] = scale;
+		mat[2][2] = 1;
 	}
 	public:void Translateinput(float x, float y) {
-		//전치 되었다 가정
-		mat[2][0] = x;
-		mat[2][1] = y;
+		//전치 안했음
+		mat[0][2] = x;
+		mat[1][2] = y;
+		mat[2][2] = 1;
 	}
 
-	public: void showVec3() {
+	public: void showMet3() {
 		//출력부
-			for (int i = 0; i < 3; i++) {
-				cout << endl;
-				for (int j = 0; j < 3; j++) {
-					cout << " " << mat[i][j];				
+		for (int i = 0; i < 3; i++) {
+			cout << endl;
+			for (int j = 0; j < 3; j++) {
+				cout << " " << mat[i][j];
 			}
 		}
 
 	}
 
+		  void reset() {
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  mat[i][j] = 0;
+				  }
+			  }
+		  }
 
 		  mat3 operator*(mat3& ref) {
-			  mat3 a;
+			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
-						  
-						  a.mat[i] [j] += ref.mat[i][k] * ref.mat[k][j];
-					  }}}
-			  return a;
+						  //행렬 계산//i 행 k 열
+						  out.mat[i][j] += mat[i][k] * ref.mat[k][j];
+					  }
 				  }
+			  }
+			  return out;
+		  }
+	
 
-		  
+
+
 	};
+
+	class vec3 {//mat 상속
+	public: float vec[3][3]{
+		0
+	};
+		  void reset() {
+			  vec[0][0] = 0;
+			  vec[0][1] = 0;
+			  vec[0][2] = 1;
+		  }
+		  // m*n 행렬 m행 i열 : 3행 1열 배열 
+		  vec3() {
+
+		  }
+		  vec3(float a, float b) {
+			  vec[3][3] = { 0 };
+			  vec[0][0] = a;
+			  vec[0][1] = b;
+			  vec[0][2] = 1;
+		  }
+		  ~vec3() {
+
+		  }
+		  
+
+	public: void showVec3() {
+		
+			for (int i = 0; i < 1; i++) {
+				for (int j = 0; j < 3; j++) {
+					cout << " " << vec[i][j];
+				}
+				
+			}
+		
+
+	}
+
+		 vec3 operator*(mat3& ref) {
+			  vec3 out(3,3);
+			  
+			  for (int i = 0; i < 1; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  for (int k = 0; k < 3; k++) {
+						  out.vec[i][j] += vec[i][k] * ref.mat[k][j];
+					  }
+				  }
+			  }
+
+			  
+			  return out;
+		  }
+	};
+
+	
+
+	
 
 }
 
