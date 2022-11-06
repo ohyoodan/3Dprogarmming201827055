@@ -98,14 +98,16 @@ namespace MuSoenMath {
 		  void reset() {
 			  vec[0][0] = 0;
 			  vec[0][1] = 0;
-			  vec[0][2] = 1;
+			  vec[0][2] = 0;
 		  }
 		  // m*n 행렬 m행 i열 : 3행 1열 배열 
 		  vec3() {
-
+			  vec[0][0] = 0;
+			  vec[0][1] = 0;
+			  vec[0][2] = 1;
 		  }
 		  vec3(float a, float b) {
-			  vec[3][3] = { 0 };
+			  vec[2][2] = { 0 };
 			  vec[0][0] = a;
 			  vec[0][1] = b;
 			  vec[0][2] = 1;
@@ -128,9 +130,9 @@ namespace MuSoenMath {
 	}
 
 		 vec3 operator*(mat3& ref) {
-			  vec3 out(3,3);
-			  
-			  for (int i = 0; i < 1; i++) {
+			  vec3 out(0,0);
+			  out.reset();
+			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
 						  out.vec[i][j] += vec[i][k] * ref.mat[k][j];
