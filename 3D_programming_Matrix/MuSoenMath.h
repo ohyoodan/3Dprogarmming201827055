@@ -38,7 +38,7 @@ namespace MuSoenMath {
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
-						  //C[i][j] += A[i][k] * B[k][j];
+						  ref.vec[i][j] += ref.vec[i][k] * ref.vec[k][j];
 					  }
 				  }
 			  }
@@ -57,10 +57,10 @@ namespace MuSoenMath {
 		{0,0,1}
 	};
 
-
-
-		  mat3(f) {
-
+		  mat3() {
+			  
+				  
+			  
 
 		  }
 		  ~mat3() {
@@ -69,14 +69,14 @@ namespace MuSoenMath {
 
 	public: void Rotateinput(float Degree) {
 		// 60분법을 호도법으로 바꾸고 기입
-		float PI = 3.141592;
+		/*float PI = 3.141592;
 		float theta = (PI / 180) * (Degree);
 		float cos;
 		float sin;
 		mat[0][0] = cos;
 		mat[1][1] = cos;
 		mat[1][0] = sin;
-		mat[0][1] = (-1 * sin);
+		mat[0][1] = (-1 * sin);*/
 	}
 
 	public:void Scaleinput(float scale) {
@@ -90,17 +90,30 @@ namespace MuSoenMath {
 		mat[2][1] = y;
 	}
 
+	public: void showVec3() {
+		//출력부
+			for (int i = 0; i < 3; i++) {
+				cout << endl;
+				for (int j = 0; j < 3; j++) {
+					cout << " " << mat[i][j];				
+			}
+		}
 
+	}
 
 
 		  mat3 operator*(mat3& ref) {
-			  /*for (int i = 0; i < 3; i++) {
+			  mat3 a;
+			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
-						  C[i][j] += mat[i][k] * B[k][j];
-					  }
-				  }*/
-		  }
+						  
+						  a.mat[i] [j] += ref.mat[i][k] * ref.mat[k][j];
+					  }}}
+			  return a;
+				  }
+
+		  
 	};
 
 }
