@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+
 using namespace std;
 //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kimjw1218&logNo=70178503080 회전, 이동 , 스케일
 //https://3001ssw.tistory.com/232 호도법 과 60분법
@@ -85,13 +86,26 @@ namespace MuSoenMath {
 			  }
 			  return out;
 		  }
-	
+		  vec3 operator*(vec3 ref) {
+			  vec3 out;
+			  out.reset();
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  for (int k = 0; k < 3; k++) {
+						  //행렬 계산//i 행 k 열
+						  out.mat[i][j] += mat[i][k] * ref.vec[k][j];
+					  }
+				  }
+			  }
+			  return out;
+		  
+	}
 
 
 
 	};
 
-	class vec3 {//mat 상속
+	class vec3:public mat3 {//mat 상속
 	public: float vec[3][3]{
 		0
 	};

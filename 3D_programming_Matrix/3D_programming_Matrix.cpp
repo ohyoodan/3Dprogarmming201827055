@@ -17,9 +17,9 @@ int main() {
 	
 	
 	//vec3 p = v * Translate * Rotate * Scale;   // 3,5 이동 | 30도 회전 | 2배 확대
-	vec3 p;
+	 vec3 p;
 	
-		p=  v * Translate * Rotate * Scale;
+	 p=  v * Translate * Rotate * Scale;
 	p.showVec3();
 	//출력 부 작성
 

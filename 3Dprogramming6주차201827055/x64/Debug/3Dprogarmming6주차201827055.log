@@ -1,0 +1,14 @@
+﻿  3Dprogramming.cpp
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogarmming6주차201827055\3Dprogramming.cpp(112,69): warning C4244: '=': 'double'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogarmming6주차201827055\3Dprogramming.cpp(113,68): warning C4244: '=': 'double'에서 'T'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              T=float
+          ]
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogarmming6주차201827055\3Dprogramming.cpp(164,23): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogarmming6주차201827055\3Dprogramming.cpp(268,19): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  3Dprogarmming6주차201827055.vcxproj -> D:\3D프로그래밍\201827055\3Dprogramming201827055\x64\Debug\6주차.exe
