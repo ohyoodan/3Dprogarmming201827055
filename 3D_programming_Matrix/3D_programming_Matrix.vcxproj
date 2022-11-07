@@ -135,9 +135,6 @@
   <ItemGroup>
     <Text Include="텍스트.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\3Dprogramming3주차201827055\3Dprogarmming3주차201827055.vcxproj" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -29,7 +29,4 @@
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\3Dprogramming3주차201827055\3Dprogarmming3주차201827055.vcxproj" />
-  </ItemGroup>
 </Project>

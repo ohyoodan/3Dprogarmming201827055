@@ -7,6 +7,7 @@ using namespace std;
 //https://blog.hexabrain.net/177 연산자 오버로딩
 //https://steemit.com/kr-dev/@codingman/c-10-3x3--1561681495960 3x3 행렬의 곱
 //https://boycoding.tistory.com/219 참조 및 값 변환
+//https://calcproject.tistory.com/415 삼각함수 와 삼각비
 
 
 namespace MuSoenMath {
@@ -32,13 +33,14 @@ namespace MuSoenMath {
 	public: void Rotateinput(float Degree) {
 		// 60분법을 호도법으로 바꾸고 기입
 		float PI = 3.141592;
-		float theta = (PI / 180) * (Degree);
-		float cos;
-		float sin;
-		mat[0][0] = 0; //cos;
-		mat[1][1] = -1;// cos;
-		mat[1][0] = 1;//sin;
-		mat[0][1] = 0;//(-1 * sin);
+		float theta = (PI / 180)* (Degree);
+		float cos=1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
+		float sin=0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
+		
+		mat[0][0] = theta; //cos;
+		mat[1][1] = theta;// cos;
+		mat[1][0] = theta;//sin;
+		mat[0][1] = -theta;//(-1 * sin);
 	}
 
 	public:void Scaleinput(float scale) {
@@ -48,9 +50,9 @@ namespace MuSoenMath {
 		mat[2][2] = 1;
 	}
 	public:void Translateinput(float x, float y) {
-		//전치 안했음
-		mat[0][2] = x;
-		mat[1][2] = y;
+		
+		mat[2][0] = x;
+		mat[2][1] = y;
 		mat[2][2] = 1;
 	}
 
@@ -86,26 +88,14 @@ namespace MuSoenMath {
 			  }
 			  return out;
 		  }
-		  vec3 operator*(vec3 ref) {
-			  vec3 out;
-			  out.reset();
-			  for (int i = 0; i < 3; i++) {
-				  for (int j = 0; j < 3; j++) {
-					  for (int k = 0; k < 3; k++) {
-						  //행렬 계산//i 행 k 열
-						  out.mat[i][j] += mat[i][k] * ref.vec[k][j];
-					  }
-				  }
-			  }
-			  return out;
+		 
 		  
-	}
-
-
+	
 
 	};
 
-	class vec3:public mat3 {//mat 상속
+
+	class vec3 {
 	public: float vec[3][3]{
 		0
 	};
