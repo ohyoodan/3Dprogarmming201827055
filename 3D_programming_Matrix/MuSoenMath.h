@@ -37,13 +37,13 @@ namespace MuSoenMath {
 	}
 
 	void reset() {// 다 영으로 바꿔드립니다.
-		if (Mat4chack = false) {
+		if (!Mat4chack) {
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					matrix3[i][j] = 0;
 				}
 			}
-		}if (Mat4chack = true) {
+		}else {
 			for (int i = 0; i < 4; i++) {
 				for (int j = 0; j < 4; j++) {
 					matrix4[i][j] = 0;
@@ -64,29 +64,60 @@ namespace MuSoenMath {
 	}
 
 	void transpose() {//전치 해드립니다.
-		float abcd = 0;
-		float dcba = 0;
-		for (int r = 0; r < 3; r++) {
+		
+		if (!Mat4chack) {
+			float TestMatrix[3][3] = { 0 };
+		
+			for (int r = 0; r < 3; r++){
+				for (int c = 0; c < 3; c++) {
+					TestMatrix[c][r] = matrix3[r][c];
+					
+				}				
+			}
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					matrix3[i][j] = TestMatrix[i][j];
 
-			for (int c = 0; c < 3; c++) {
-				abcd = matrix3[c][r];
-				dcba = matrix3[r][c];
-				matrix3[c][r] = dcba;
-				matrix3[r][c] = abcd;
+				}
 			}
 		}
+		
+		else{
+			float TestMatrix[4][4] = { 0 };
+			for (int r = 0; r < 4; r++) {
+				for (int c = 0; c < 4; c++) {
+					TestMatrix[c][r] = matrix4[r][c];
+				}
+			}
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					matrix3[i][j] = TestMatrix[i][j];
 
-
+				}
+			}
+		}
 	}
 	void show() {//보여드립니다.
-		if (Mat4chack =false) {
+		if (!Mat4chack) {
 			for (int i = 0; i < 3; i++) {
 				cout << endl;
 				for (int j = 0; j < 3; j++) {
 					cout << " " << matrix3[i][j];
 				}
 			}
+			cout << endl;
 		}
+		
+		else {
+			for (int i = 0; i < 4; i++) {
+				cout << endl;
+				for (int j = 0; j < 4; j++) {
+					cout << " " << matrix4[i][j];
+				}
+			}
+			cout << endl;
+		}
+		
 	}
 
 	};
@@ -98,9 +129,15 @@ namespace MuSoenMath {
 
 
 
-		mat4(float(*arr)[4], int i, int j, int k) {
-
+		mat4(float(*arr)[4]) {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					matrix3[i][j] = arr[i][j];
+				}
+			}
+			Mat4chack = true;
 		}
+		
 		~mat4() {
 
 		}
@@ -116,8 +153,12 @@ namespace MuSoenMath {
 		  
 
 		  
-	public: mat3(float arr[3][3], int i, int j) {
-			matrix3 = arr;
+	public: mat3(float (*arr)[3]) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				matrix3[i][j] = arr[i][j];
+			}
+		}
 			Mat4chack = false;
 		  }
 		  
@@ -152,16 +193,6 @@ namespace MuSoenMath {
 	//	mat[2][2] = 1;
 	//}
 
-	//public: void show() {
-	//	//출력부
-	//	for (int i = 0; i < 3; i++) {
-	//		cout << endl;
-	//		for (int j = 0; j < 3; j++) {
-	//			cout << " " << mat[i][j];
-	//		}
-	//	}
-
-	//}
 
 
 	//	  mat3 operator*(mat3& ref) {
