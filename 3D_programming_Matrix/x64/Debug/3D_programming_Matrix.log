@@ -1,3 +1,2 @@
 ﻿  3D_programming_Matrix.cpp
-D:\3D프로그래밍\201827055\3Dprogramming201827055\3D_programming_Matrix\MuSoenMath.h(35,1): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-  3D_programming_Matrix.vcxproj -> D:\3D프로그래밍\201827055\3Dprogramming201827055\x64\Debug\3D_programming_Matrix.exe
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3D_programming_Matrix\MuSoenMath.h(120,12): error C3863: 배열 형식 'float [3][3]'은(는) 할당할 수 없습니다.
