@@ -21,51 +21,50 @@ namespace MuSoenMath {
 			0
 		};
 
-		bool Mat4chack = false;
-	public: void Rotateinput(float Degree) {
 		
+	public: void Rotateinput(float Degree) {
+		 //60분법을 호도법으로 바꾸고 기입
+		float PI = 3.1415;
+		float theta = (PI / 180) * (Degree);
+		float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
+		float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
+
+		matrix3[0][0] = theta; //cos;
+		matrix3[1][1] = theta;// cos;
+		matrix3[1][0] = theta;//sin;
+		matrix3[0][1] = -theta;//(-1 * sin);
 	}
 
 
 	void Scaleinput(float scale) {
-			  
+		matrix3[0][0] = scale;
+		matrix3[1][1] = scale;
+		matrix3[2][2] = 1;
 	}
 
 
 	void Translateinput(float x, float y) {
-
+		matrix3[2][0] = x;
+		matrix3[2][1] = y;
+		matrix3[2][2] = 1;
 	}
 
-	void reset() {// 다 영으로 바꿔드립니다.
-		if (!Mat4chack) {
+	 void reset() {// 다 영으로 바꿔드립니다.
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					matrix3[i][j] = 0;
 				}
 			}
-		}else {
-			for (int i = 0; i < 4; i++) {
-				for (int j = 0; j < 4; j++) {
-					matrix4[i][j] = 0;
-				}
-			}
-		}
 	}
 	void identity() {//단위 행렬 만들어드립니다.
 		reset();
-		matrix3[0][0] = 1;
-		matrix3[1][1] = 1;
-		matrix3[2][2] = 1;
-
-		matrix4[0][0] = 1;
-		matrix4[1][1] = 1;
-		matrix4[2][2] = 1;
-		matrix4[3][3] = 1;
+		for (int i = 0; i < 3; i++) {
+			matrix3[i][i] = 1;
+		}
 	}
 
 	void transpose() {//전치 해드립니다.
 		
-		if (!Mat4chack) {
 			float TestMatrix[3][3] = { 0 };
 		
 			for (int r = 0; r < 3; r++){
@@ -80,9 +79,69 @@ namespace MuSoenMath {
 
 				}
 			}
+		
+		
+	}
+	void show() {//보여드립니다.
+		
+			for (int i = 0; i < 3; i++) {
+				cout << endl;
+				for (int j = 0; j < 3; j++) {
+					cout << " " << matrix3[i][j];
+				}
+			}
+			cout << endl;
+			
+	}
+	float getmatrixfloat(int a, int b) {
+		float t = matrix3[a][b];
+		return t;
+	}
+
+	void setmatrixfloat(int a, int b,float c) {
+		matrix3[a][b] = c;
+	}
+
+};
+
+
+
+	class mat4 : public mat {
+		
+	public :mat4() {
+
+		}
+
+
+		mat4(float(*arr)[4]) {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					matrix4[i][j] = arr[i][j];
+				}
+			}
+			
 		}
 		
-		else{
+		~mat4() {
+
+		}
+
+		void reset() {
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					matrix4[i][j] = 0;
+				}
+			}
+		}
+
+		void identity() {
+			reset();
+			for (int i = 0; i < 4 ; i++) {
+				matrix4[i][i] = 1;
+			}
+			
+		}
+		void transpose() {
 			float TestMatrix[4][4] = { 0 };
 			for (int r = 0; r < 4; r++) {
 				for (int c = 0; c < 4; c++) {
@@ -91,24 +150,13 @@ namespace MuSoenMath {
 			}
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
-					matrix3[i][j] = TestMatrix[i][j];
+					matrix4[i][j] = TestMatrix[i][j];
 
 				}
 			}
 		}
-	}
-	void show() {//보여드립니다.
-		if (!Mat4chack) {
-			for (int i = 0; i < 3; i++) {
-				cout << endl;
-				for (int j = 0; j < 3; j++) {
-					cout << " " << matrix3[i][j];
-				}
-			}
-			cout << endl;
-		}
 		
-		else {
+		void show() {
 			for (int i = 0; i < 4; i++) {
 				cout << endl;
 				for (int j = 0; j < 4; j++) {
@@ -117,31 +165,26 @@ namespace MuSoenMath {
 			}
 			cout << endl;
 		}
-		
-	}
+		float getmatrixfloat(int a,int b) {
+			float t = matrix4[a][b];
+			return t;
+		}
 
-	};
+		mat4 operator*(mat4 ref) {
 
+			mat4 out;
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					for (int k = 0; k < 3; k++) {
+						//행렬 계산//i 행 k 열
 
-
-
-	class mat4 : mat {
-
-
-
-		mat4(float(*arr)[4]) {
-			for (int i = 0; i < 4; i++) {
-				for (int j = 0; j < 4; j++) {
-					matrix3[i][j] = arr[i][j];
+						out.matrix4[i][j] += matrix4[i][k] * ref.matrix4[k][j];
+					}
 				}
 			}
-			Mat4chack = true;
-		}
-		
-		~mat4() {
 
+			return out;
 		}
-		
 
 	};
 
@@ -150,127 +193,164 @@ namespace MuSoenMath {
 
 	class mat3  : public mat{
 
-		  
+	public:	mat3() {
+		identity();
+		  }
 
 		  
-	public: mat3(float (*arr)[3]) {
+		mat3(float (*arr)[3]) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				matrix3[i][j] = arr[i][j];
 			}
 		}
-			Mat4chack = false;
+			
 		  }
 		  
 		  ~mat3() {
 
 		  }
 
-	
-	//public: void Rotateinput(float Degree) {
-	//	// 60분법을 호도법으로 바꾸고 기입
-	//	float PI = 3.1415;
-	//	float theta = (PI / 180) * (Degree);
-	//	float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
-	//	float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
-
-	//	mat[0][0] = theta; //cos;
-	//	mat[1][1] = theta;// cos;
-	//	mat[1][0] = theta;//sin;
-	//	mat[0][1] = -theta;//(-1 * sin);
-	//}
-
-	//public:void Scaleinput(float scale) {
-	//	//단순히 비율 증가 시  만약 x,y따로 하고싶으면 [1][1]위치에 y를 배치
-	//	mat[0][0] = scale;
-	//	mat[1][1] = scale;
-	//	mat[2][2] = 1;
-	//}
-	//public:void Translateinput(float x, float y) {
-	//	
-	//	mat[2][0] = x;
-	//	mat[2][1] = y;
-	//	mat[2][2] = 1;
-	//}
 
 
-
-	//	  mat3 operator*(mat3& ref) {
-	//		  mat3 out;
-	//		  out.reset();
-	//		  for (int i = 0; i < 3; i++) {
-	//			  for (int j = 0; j < 3; j++) {
-	//				  for (int k = 0; k < 3; k++) {
-	//					  //행렬 계산//i 행 k 열
-	//					  out.mat[i][j] += mat[i][k] * ref.mat[k][j];
-	//				  }
-	//			  }
-	//		  }
-	//		  return out;
-	//	  }
+		  mat3 operator*(mat3& ref) {
+			  
+			  mat3 out;
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  for (int k = 0; k < 3; k++) {
+						  //행렬 계산//i 행 k 열
+						  
+						  out.matrix3[i][j] += matrix3[i][k] * ref.matrix3[k][j];
+					  }
+				  }
+			  }
+			  
+			  return out;
+		  }
 		 
 		  
-	
-
 	};
 
 
-	class vec3 {
-	public: float vec[3][3]{
-		0
-	};
-		  void reset() {
-			  vec[0][0] = 0;
-			  vec[0][1] = 0;
-			  vec[0][2] = 0;
+	class vec3 : public mat {
+		bool t = false;//1x3행
+
+	public:  void reset() {
+			matrix3[0][0] = 0;
+			matrix3[0][1] = 0;
+			matrix3[0][2] = 0;
 		  }
-		  // m*n 행렬 m행 i열 : 3행 1열 배열 
+		  // m*n 행렬 m행 i열 : 1행 3열 배열 
 		  vec3() {
-			  vec[0][0] = 0;
-			  vec[0][1] = 0;
-			  vec[0][2] = 1;
+			  matrix3[0][0] = 0;
+			  matrix3[0][1] = 0;
+			  matrix3[0][2] = 1;
 		  }
 		  vec3(float a, float b) {
-			  vec[2][2] = { 0 };
-			  vec[0][0] = a;
-			  vec[0][1] = b;
-			  vec[0][2] = 1;
+			  reset();
+			  matrix3[0][0] = a;
+			  matrix3[0][1] = b;
+			  matrix3[0][2] = 1;
 		  }
 		  ~vec3() {
 
 		  }
+		  void transpose() {
+			  float TestMatrix[3][3] = { 0 };
+			  
+				  
+			  if (!t) {
+				  t = true;
+				  float TestMatrix[3][3] = { 0 };
+				  for (int i = 0; i < 3; i++) {
+					  TestMatrix[i][0] = matrix3[0][i];
+				  }
+
+				  for (int i = 0; i < 3; i++) {
+					  for (int j = 0; j < 3; j++) {
+						  matrix3[i][j] = TestMatrix[i][j];
+
+					  }
+				  }
+			  }
+			  else {
+				   
+				  t = false;
+				  float TestMatrix[3][3] = { 0 };
+				  for (int i = 0; i < 3; i++) {
+					  TestMatrix[0][i] = matrix3[i][0];
+				  }
+
+				  for (int i = 0; i < 3; i++) {
+					  for (int j = 0; j < 3; j++) {
+						  matrix3[i][j] = TestMatrix[i][j];
+
+					  }
+				  }
+			  }
+		  }
 		  
+	 void show() {
+		 if (!t) {
+			 cout << endl;
+			 for (int i = 0; i < 1; i++) {
+				 for (int j = 0; j < 3; j++) {
+					 cout << " " << matrix3[i][j];
+				 }
 
-	public: void show() {
-		
-			for (int i = 0; i < 1; i++) {
-				for (int j = 0; j < 3; j++) {
-					cout << " " << vec[i][j];
-				}
-				
-			}
-		
+			 }
+			 cout << endl;
+		 }else{
+			 cout << endl;
+			 for (int i = 0; i < 3; i++) {
+				 for (int j = 0; j < 1; j++) {
+					 cout << endl;
+					 cout << " " << matrix3[i][j];
+					 cout << endl;
+				 }
 
+			 }
+			 cout << endl;
+		 }
 	}
 
-		/* vec3 operator*(mat3& ref) {
+		vec3 operator*(mat3& ref) {
 			  vec3 out(0,0);
 			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
-						  out.vec[i][j] += vec[i][k] * ref.mat[k][j];
+						  out.matrix3[i][j] += matrix3[i][k] * ref.getmatrixfloat(k, j);
 					  }
 				  }
 			  }
-
-			  
+			  	  
 			  return out;
-		  }*/
+		  }
+
+		
 	};
 
 	
+	/*vec3 operator*(vec3& ref1, mat3& ref2){
+		vec3 out(0, 0);
+		float abc[3][3];
+		out.reset();
+		
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				for (int k = 0; k < 3; k++) {
+					abc[i][j] += ref1.getmatrixfloat(i, k) * ref2.getmatrixfloat(k, j);
+					
+					
+				}
+				out.setmatrixfloat(i, j, abc[i][j]);
+			}
+		}
 
+		return out;
+	}*/
 	
 
 }
