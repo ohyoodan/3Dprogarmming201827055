@@ -174,9 +174,9 @@ namespace MuSoenMath {
 		  mat4 operator*(mat4 ref) {
 
 			  mat4 out;
-			  for (int i = 0; i < 3; i++) {
-				  for (int j = 0; j < 3; j++) {
-					  for (int k = 0; k < 3; k++) {
+			  for (int i = 0; i < 4; i++) {
+				  for (int j = 0; j < 4; j++) {
+					  for (int k = 0; k < 4; k++) {
 						  //행렬 계산//i 행 k 열
 
 						  out.matrix4[i][j] += matrix4[i][k] * ref.matrix4[k][j];
