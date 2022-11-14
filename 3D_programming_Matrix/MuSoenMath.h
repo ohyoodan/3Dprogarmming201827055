@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#define rows 3
+#define sin(x)( 0.011111*x)
+#define cos(x)( 0.011111*x)
 using namespace std;
 //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kimjw1218&logNo=70178503080 회전, 이동 , 스케일
 //https://3001ssw.tistory.com/232 호도법 과 60분법
@@ -26,13 +27,13 @@ namespace MuSoenMath {
 		 //60분법을 호도법으로 바꾸고 기입
 		float PI = 3.1415;
 		float theta = (PI / 180) * (Degree);
-		float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
-		float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
+		//float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
+		//float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
 
-		matrix3[0][0] = theta; //cos;
-		matrix3[1][1] = theta;// cos;
-		matrix3[1][0] = theta;//sin;
-		matrix3[0][1] = -theta;//(-1 * sin);
+		matrix3[0][0] = 1-theta; //cos;
+		matrix3[1][1] = 1-theta;// cos;
+		matrix3[1][0] = 0-theta;//sin;
+		matrix3[0][1] = 0-(-1 * theta);//(-1 * sin);
 	}
 
 
@@ -44,8 +45,8 @@ namespace MuSoenMath {
 
 
 	void Translateinput(float x, float y) {
-		matrix3[2][0] = x;
-		matrix3[2][1] = y;
+		matrix3[0][2] = x;
+		matrix3[1][2] = y;
 		matrix3[2][2] = 1;
 	}
 
@@ -213,7 +214,7 @@ namespace MuSoenMath {
 
 
 
-		  mat3 operator*(mat3& ref) {
+		  mat3 operator*(mat3& ref) {//다른 구조와 곱셈
 			  
 			  mat3 out;
 			  for (int i = 0; i < 3; i++) {
@@ -228,8 +229,46 @@ namespace MuSoenMath {
 			  
 			  return out;
 		  }
-		 
-		  
+		  mat3 operator+(mat3& ref) {//행렬간의 덧셈
+			  mat3 out;
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+						  out.matrix3[i][j] += matrix3[i][j] + ref.matrix3[i][j];
+					  
+				  }
+			  }
+			  return out;
+		 }
+		  mat3 operator-(mat3& ref) {//행렬간의 뺄셈
+			  mat3 out;
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  out.matrix3[i][j] += matrix3[i][j] - ref.matrix3[i][j];
+
+				  }
+			  }
+			  return out;
+		  }
+		  mat3 operator*(int a) {
+			  mat3 out;
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  out.matrix3[i][j] += matrix3[i][j] * a;
+
+				  }
+			  }
+			  return out;
+		  }
+		  mat3 operator/(int a) {
+			  mat3 out;
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  out.matrix3[i][j] += matrix3[i][j] / a;
+
+				  }
+			  }
+			  return out;
+		  }
 	};
 
 
@@ -315,21 +354,93 @@ namespace MuSoenMath {
 		 }
 	}
 
-		vec3 operator*(mat3& ref) {
-			  vec3 out(0,0);
-			  out.reset();
-			  for (int i = 0; i < 3; i++) {
-				  for (int j = 0; j < 3; j++) {
-					  for (int k = 0; k < 3; k++) {
-						  out.matrix3[i][j] += matrix3[i][k] * ref.getmatrixfloat(k, j);
-					  }
-				  }
-			  }
-			  	  
-			  return out;
+		vec3 operator*(mat3& ref) {//다른 자료와 곱하기
+			
+				vec3 out(0, 0);
+				out.reset();
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						for (int k = 0; k < 3; k++) {
+							out.matrix3[i][j] += matrix3[i][k] * ref.getmatrixfloat(k, j);
+						}
+					}
+				}
+				if (!t) {
+					out.t = false;
+				}
+				else {
+					out.t = true;
+				}
+				return out;
+			
+			
 		  }
+		vec3 operator+(vec3& ref) {//백터간의 덧셈
+			vec3 out(0, 0);
+			out.reset();
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+						out.matrix3[i][j] += matrix3[i][j] + ref.getmatrixfloat(i, j);					
+				}
+			}
+			if (!t) {
+				out.t = false;
+			}
+			else {
+				out.t = true;
+			}
+			return out;
+		}
+		vec3 operator-(vec3& ref) {//백터간의 뺄셈
+			vec3 out(0, 0);
+			out.reset();
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					
+						out.matrix3[i][j] += matrix3[i][j] - ref.getmatrixfloat(i, j);
+					
+				}
+			}if (!t) {
+				out.t = false;
+			}
+			else {
+				out.t = true;
+			}
+			return out;
+		}
+		vec3 operator/(int a) {//상수 나눗셈
+			vec3 out(0, 0);
+			out.reset();
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+						out.matrix3[i][j] += matrix3[i][j] / a;
+				}
+			}if (!t) {
+				out.t = false;
+			}
+			else {
+				out.t = true;
+			}
+			return out;
+		}
+		vec3 operator*(int a) {//상수 곱
+			vec3 out(0, 0);
+			out.reset();
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
 
-		
+						out.matrix3[i][j] +=  matrix3[i][j]*a;
+					
+				}
+			}if (!t) {
+				out.t = false;
+			}
+			else {
+				out.t = true;
+			}
+			return out;
+
+		}
 	};
 
 	

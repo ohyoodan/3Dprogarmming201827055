@@ -27,13 +27,16 @@ int main() {
 	
 	 vec3 p(2,3);// 계산 완료할 좌표위치 클래스 선언
 	 mat3 test;
-	 v = p * translate * rotate * scale;
-	 p.show();
-	 p.transpose();
-	 p.show();
+	 v = p * translate * rotate * scale;	 
+	 
 	 
 	v.show();//출력
 	
+	p =p * 3;
+	p.transpose();
+	p.show();
+	p = p / 2;
+	p.show();
 
 	
 	
