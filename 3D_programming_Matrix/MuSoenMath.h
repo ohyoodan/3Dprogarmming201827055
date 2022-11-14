@@ -110,7 +110,7 @@ namespace MuSoenMath {
 	class mat4 : public mat {
 
 	public:mat4() {
-
+		identity();
 	}
 
 
@@ -295,6 +295,7 @@ namespace MuSoenMath {
 		  ~vec3() {
 
 		  }
+		  
 		  void transpose() {
 
 
