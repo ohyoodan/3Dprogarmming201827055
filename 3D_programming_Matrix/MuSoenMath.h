@@ -174,6 +174,7 @@ namespace MuSoenMath {
 		  mat4 operator*(mat4 ref) {
 
 			  mat4 out;
+			  out.reset();
 			  for (int i = 0; i < 4; i++) {
 				  for (int j = 0; j < 4; j++) {
 					  for (int k = 0; k < 4; k++) {
@@ -185,6 +186,53 @@ namespace MuSoenMath {
 			  }
 
 			  return out;
+		  }
+		  mat4 operator+(mat4& ref) {//¹éÅÍ°£ÀÇ µ¡¼À
+			  mat4 out;
+			  out.reset();
+			  for (int i = 0; i < 4; i++) {
+				  for (int j = 0; j < 4; j++) {
+					  out.matrix4[i][j] += matrix4[i][j] + ref.getmatrixfloat(i, j);
+				  }
+			  }
+			  
+			  return out;
+		  }
+		  mat4 operator-(mat4& ref) {//¹éÅÍ°£ÀÇ »¬¼À
+			  mat4 out;
+			  out.reset();
+			  for (int i = 0; i < 4; i++) {
+				  for (int j = 0; j < 4; j++) {
+
+					  out.matrix4[i][j] += matrix4[i][j] - ref.getmatrixfloat(i, j);
+
+				  }
+			  }
+			  return out;
+		  }
+		  mat4 operator/(int a) {//»ó¼ö ³ª´°¼À
+			  mat4 out;
+			  out.reset();
+			  for (int i = 0; i < 4; i++) {
+				  for (int j = 0; j < 4; j++) {
+					  out.matrix4[i][j] += matrix4[i][j] / a;
+				  }
+			  }
+			  return out;
+		  }
+		  mat4 operator*(int a) {//»ó¼ö °ö
+			  mat4 out;
+			  out.reset();
+			  for (int i = 0; i < 4; i++) {
+				  for (int j = 0; j < 4; j++) {
+
+					  out.matrix4[i][j] += matrix4[i][j] * a;
+
+				  }
+			  }
+			  return out;
+
+
 		  }
 
 	};
@@ -217,6 +265,7 @@ namespace MuSoenMath {
 		  mat3 operator*(mat3& ref) {//Çà·Ä°£  °ö¼À
 
 			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  for (int k = 0; k < 3; k++) {
@@ -231,6 +280,7 @@ namespace MuSoenMath {
 		  }
 		  mat3 operator+(mat3& ref) {//Çà·Ä°£ÀÇ µ¡¼À
 			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  out.matrix3[i][j] += matrix3[i][j] + ref.matrix3[i][j];
@@ -241,6 +291,7 @@ namespace MuSoenMath {
 		  }
 		  mat3 operator-(mat3& ref) {//Çà·Ä°£ÀÇ »¬¼À
 			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  out.matrix3[i][j] += matrix3[i][j] - ref.matrix3[i][j];
@@ -251,6 +302,7 @@ namespace MuSoenMath {
 		  }
 		  mat3 operator*(int a) {
 			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  out.matrix3[i][j] += matrix3[i][j] * a;
@@ -261,6 +313,7 @@ namespace MuSoenMath {
 		  }
 		  mat3 operator/(int a) {
 			  mat3 out;
+			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
 					  out.matrix3[i][j] += matrix3[i][j] / a;
@@ -357,7 +410,7 @@ namespace MuSoenMath {
 
 		  vec3 operator*(mat3& ref) {//´Ù¸¥ ÀÚ·á¿Í °öÇÏ±â
 
-			  vec3 out(0, 0);
+			  vec3 out;
 			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
@@ -377,7 +430,7 @@ namespace MuSoenMath {
 
 		  }
 		  vec3 operator+(vec3& ref) {//¹éÅÍ°£ÀÇ µ¡¼À
-			  vec3 out(0, 0);
+			  vec3 out;
 			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
@@ -393,7 +446,7 @@ namespace MuSoenMath {
 			  return out;
 		  }
 		  vec3 operator-(vec3& ref) {//¹éÅÍ°£ÀÇ »¬¼À
-			  vec3 out(0, 0);
+			  vec3 out;
 			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
@@ -410,7 +463,7 @@ namespace MuSoenMath {
 			  return out;
 		  }
 		  vec3 operator/(int a) {//»ó¼ö ³ª´°¼À
-			  vec3 out(0, 0);
+			  vec3 out;
 			  out.reset();
 			  for (int i = 0; i < 3; i++) {
 				  for (int j = 0; j < 3; j++) {
@@ -532,7 +585,7 @@ namespace MuSoenMath {
 
 				vec4 operator*(mat4& ref) {//´Ù¸¥ ÀÚ·á¿Í °öÇÏ±â
 
-					vec4 out(0, 0, 0);
+					vec4 out;
 					out.reset();
 					for (int i = 0; i < 4; i++) {
 						for (int j = 0; j < 4; j++) {
@@ -552,7 +605,7 @@ namespace MuSoenMath {
 
 				}
 				vec4 operator+(vec4& ref) {//¹éÅÍ°£ÀÇ µ¡¼À
-					vec4 out(0, 0,0);
+					vec4 out;
 					out.reset();
 					for (int i = 0; i < 4; i++) {
 						for (int j = 0; j < 4; j++) {
@@ -568,7 +621,7 @@ namespace MuSoenMath {
 					return out;
 				}
 				vec4 operator-(vec4& ref) {//¹éÅÍ°£ÀÇ »¬¼À
-					vec4 out(0, 0,0);
+					vec4 out;
 					out.reset();
 					for (int i = 0; i < 4; i++) {
 						for (int j = 0; j < 4; j++) {
@@ -585,7 +638,7 @@ namespace MuSoenMath {
 					return out;
 				}
 				vec4 operator/(int a) {//»ó¼ö ³ª´°¼À
-					vec4 out(0, 0,0);
+					vec4 out;
 					out.reset();
 					for (int i = 0; i < 4; i++) {
 						for (int j = 0; j < 4; j++) {
@@ -600,7 +653,7 @@ namespace MuSoenMath {
 					return out;
 				}
 				vec4 operator*(int a) {//»ó¼ö °ö
-					vec4 out(0, 0,0);
+					vec4 out;
 					out.reset();
 					for (int i = 0; i < 4; i++) {
 						for (int j = 0; j < 4; j++) {
