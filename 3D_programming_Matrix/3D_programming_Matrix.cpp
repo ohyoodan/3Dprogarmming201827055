@@ -27,6 +27,7 @@ int main() {
 	
 	 vec3 p(2,3);// 계산 완료할 좌표위치 클래스 선언
 	 mat3 test;
+	 
 	 v = p * translate * rotate * scale;	 
 	 
 	 
