@@ -214,7 +214,7 @@ namespace MuSoenMath {
 
 
 
-		  mat3 operator*(mat3& ref) {//´Ù¸¥ ±¸Á¶¿Í °ö¼À
+		  mat3 operator*(mat3& ref) {//Çà·Ä°£  °ö¼À
 
 			  mat3 out;
 			  for (int i = 0; i < 3; i++) {
