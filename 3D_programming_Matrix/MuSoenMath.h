@@ -546,7 +546,7 @@ namespace MuSoenMath {
 						t = false;
 						float TestMatrix[4][4] = { 0 };
 						for (int i = 0; i < 4; i++) {
-							TestMatrix[0][i] = matrix3[i][0];
+							TestMatrix[0][i] = matrix4[i][0];
 						}
 
 						for (int i = 0; i < 4; i++) {

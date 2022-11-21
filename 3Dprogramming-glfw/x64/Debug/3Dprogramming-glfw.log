@@ -1,0 +1,121 @@
+﻿  Main.cpp
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(248,1): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(24,5): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(30,5): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(31,5): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(32,5): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(95,21): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(96,21): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(96,25): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(96,34): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(96,39): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(97,21): error C2039: 'z': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(113,27): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(113,32): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(113,41): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(113,46): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(114,27): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(114,31): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(114,40): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(114,45): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(115,27): error C2039: 'z': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(127,27): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(127,36): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(131,5): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(132,26): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,9): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,18): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,23): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,40): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,49): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(133,54): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,9): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,18): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,23): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,39): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,48): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(134,53): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(132,35): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(136,5): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(137,23): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(137,32): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(141,5): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(165,23): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(188,30): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(188,39): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(192,9): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(194,34): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(194,43): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(198,9): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(200,33): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,13): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,22): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,27): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,48): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,57): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(201,62): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,13): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,22): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,27): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,47): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,56): error C2653: 'glm': 클래스 또는 네임스페이스 이름이 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(202,61): error C3861: 'radians': 식별자를 찾을 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(200,42): error C2440: '<function-style-cast>': 'initializer list'에서 'MuSoenMath::mat3'(으)로 변환할 수 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(204,9): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(207,123): error C2679: 이항 '*': 오른쪽 피연산자로 'MuSoenMath::vec3' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(357,10): message : 'MuSoenMath::mat3 MuSoenMath::mat3::operator *(int)'일 수 있습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(319,10): message : 또는       'MuSoenMath::mat3 MuSoenMath::mat3::operator *(MuSoenMath::mat3 &)'
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(207,123): message : 인수 목록 '(MuSoenMath::mat3, MuSoenMath::vec3)'을(를) 일치시키는 동안
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(213,119): error C2679: 이항 '*': 오른쪽 피연산자로 'MuSoenMath::vec3' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(357,10): message : 'MuSoenMath::mat3 MuSoenMath::mat3::operator *(int)'일 수 있습니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(319,10): message : 또는       'MuSoenMath::mat3 MuSoenMath::mat3::operator *(MuSoenMath::mat3 &)'
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(213,119): message : 인수 목록 '(MuSoenMath::mat3, MuSoenMath::vec3)'을(를) 일치시키는 동안
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(231,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(231,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(231,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(234,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(234,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(234,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(237,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(237,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(237,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(240,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(240,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(240,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(243,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(243,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(243,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(247,43): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(247,69): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(247,76): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(255,53): error C2039: 'x': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(255,85): error C2039: 'y': 'MuSoenMath::vec3'의 멤버가 아닙니다.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\MuSoenMath.h(382): message : 'MuSoenMath::vec3' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(255,92): error C2660: 'glVertex3f': 함수는 2개의 인수를 사용하지 않습니다.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\GL\gl.h(1477,25): message : 'glVertex3f' 선언을 참조하십시오.
+D:\3D프로그래밍\201827055\3Dprogramming201827055\3Dprogramming-glfw\Main.cpp(269,19): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.

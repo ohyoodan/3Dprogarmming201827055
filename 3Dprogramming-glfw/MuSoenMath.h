@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-#define sin(x)( 0.011111*x)
-#define cos(x)( 0.011111*x)
+
 using namespace std;
 //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=kimjw1218&logNo=70178503080 회전, 이동 , 스케일
 //https://3001ssw.tistory.com/232 호도법 과 60분법
@@ -13,42 +12,20 @@ using namespace std;
 
 namespace MuSoenMath {
 	class mat {
-
-	protected:float matrix3[3][3]{
+	protected:
+	
+		float matrix3[3][3]{
 			0
 	};
+	
 
-			 float matrix4[4][4]{
-				 0
-			 };
-
-
-	public: void Rotateinput(float Degree) {
-		//60분법을 호도법으로 바꾸고 기입
-		float PI = 3.1415;
-		float theta = (PI / 180) * (Degree);
-		//float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
-		//float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
-
-		matrix3[0][0] = 1 - theta; //cos;
-		matrix3[1][1] = 1 - theta;// cos;
-		matrix3[1][0] = 0 - theta;//sin;
-		matrix3[0][1] = 0 - (-1 * theta);//(-1 * sin);
-	}
+	public: void Rotateinput(float Degree) {}
 
 
-		  void Scaleinput(float scale) {
-			  matrix3[0][0] = scale;
-			  matrix3[1][1] = scale;
-			  matrix3[2][2] = 1;
-		  }
+		  void Scaleinput(float scale) {}
 
 
-		  void Translateinput(float x, float y) {
-			  matrix3[0][2] = x;
-			  matrix3[1][2] = y;
-			  matrix3[2][2] = 1;
-		  }
+		  void Translateinput(float x, float y) {}
 
 		  void reset() {// 다 영으로 바꿔드립니다.
 			  for (int i = 0; i < 3; i++) {
@@ -108,6 +85,9 @@ namespace MuSoenMath {
 
 
 	class mat4 : public mat {
+		float matrix4[4][4]{
+				 0
+		};
 
 	public:mat4() {
 		identity();
@@ -241,10 +221,14 @@ namespace MuSoenMath {
 
 
 	class mat3 : public mat {
-
+	protected:
+		float matrix3[3][3]{
+			0
+		};
 	public:	mat3() {
 		identity();
 	}
+		  
 
 
 		  mat3(float(*arr)[3]) {
@@ -259,7 +243,77 @@ namespace MuSoenMath {
 		  ~mat3() {
 
 		  }
+	public: void Rotateinput(float Degree) {
+		//60분법을 호도법으로 바꾸고 기입
+		float PI = 3.1415;
+		float theta = (PI / 180) * (Degree);
+		//float cos = 1;//0도일 때 1 30도 1/2 45도 log2/2 60도 log3/2 90도 1
+		//float sin = 0;//0도 일때 0 30도 log3/2도 45도 log2/2 60도 1/2 90도 1
 
+		matrix3[0][0] = 1 - theta; //cos;
+		matrix3[1][1] = 1 - theta;// cos;
+		matrix3[1][0] = 0 - theta;//sin;
+		matrix3[0][1] = 0 - (-1 * theta);//(-1 * sin);
+	}
+
+
+		  void Scaleinput(float scale) {
+			  matrix3[0][0] = scale;
+			  matrix3[1][1] = scale;
+			  matrix3[2][2] = 1;
+		  }
+
+
+		  void Translateinput(float x, float y) {
+			  matrix3[0][2] = x;
+			  matrix3[1][2] = y;
+			  matrix3[2][2] = 1;
+		  }
+
+		  void reset() {// 다 영으로 바꿔드립니다.
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  matrix3[i][j] = 0;
+				  }
+			  }
+		  }
+		  void identity() {//단위 행렬 만들어드립니다.
+			  reset();
+			  for (int i = 0; i < 3; i++) {
+				  matrix3[i][i] = 1;
+			  }
+		  }
+
+		  void transpose() {//전치 해드립니다.
+
+			  float TestMatrix[3][3] = { 0 };
+
+			  for (int r = 0; r < 3; r++) {
+				  for (int c = 0; c < 3; c++) {
+					  TestMatrix[c][r] = matrix3[r][c];
+
+				  }
+			  }
+			  for (int i = 0; i < 3; i++) {
+				  for (int j = 0; j < 3; j++) {
+					  matrix3[i][j] = TestMatrix[i][j];
+
+				  }
+			  }
+
+
+		  }
+		  void show() {//보여드립니다.
+
+			  for (int i = 0; i < 3; i++) {
+				  cout << endl;
+				  for (int j = 0; j < 3; j++) {
+					  cout << " " << matrix3[i][j];
+				  }
+			  }
+			  cout << endl;
+
+		  }
 
 
 		  mat3 operator*(mat3& ref) {//행렬간  곱셈
@@ -327,7 +381,10 @@ namespace MuSoenMath {
 
 	class vec3 : public mat {
 		bool t = false;//1x3행
-
+	protected:
+		float matrix3[3][3]{
+			0
+		};
 	public:  void reset() {
 		matrix3[0][0] = 0;
 		matrix3[0][1] = 0;
@@ -499,7 +556,9 @@ namespace MuSoenMath {
 
 	class vec4 : public mat {
 		bool t = false;//1x4행
-
+		float matrix4[4][4]{
+				0
+		};
 	public:  void reset() {
 		matrix4[0][0] = 0;
 		matrix4[0][1] = 0;
@@ -701,5 +760,4 @@ namespace MuSoenMath {
 
 
 }
-
 
