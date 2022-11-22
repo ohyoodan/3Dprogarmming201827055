@@ -194,23 +194,33 @@ void Update()
         if (rotation >= 360) {//회전 초기화
             rotation = 1;
         }
-        transformuse.scale = glm::mat3(//스케일
-            scale, 0, 0,
-            0, scale, 0,
-            0, 0, 1
-        );
-
-        transformuse.translate = glm::mat3{//이동
-           1,0,0,
-           0,1,0,
-           Tmove,0,1
+        float scale_T[3][3] = {//스케일
+            { scale, 0, 0 },
+            { 0, scale, 0 },
+            {       0, 0, 1}
+        };
+        transformuse.scale = scale_T;
+        float translate_T[3][3] = {//이동
+            {1,0,0},
+            {0,1,0},
+            {Tmove,0,1}
+        };
+        transformuse.translate = translate_T;
+        mat3 rotation_A;
+        rotation_A.Rotateinput(rotation);
+        float rotation_T[3][3] = {
+            {rotation_A.getmatrixfloat(0,0),rotation_A.getmatrixfloat(0,1),0},
+            {rotation_A.getmatrixfloat(1,0),rotation_A.getmatrixfloat(1,1),0},
+            {0,0,1}
+            
         };
 
-        transformuse.rotation = glm::mat3(//회전
-            glm::cos(glm::radians(rotation)), -glm::sin(glm::radians(rotation)), 0,
-            glm::sin(glm::radians(rotation)), glm::cos(glm::radians(rotation)), 0,
-            0, 0, 1
-        );
+        //transformuse.rotation = glm::mat3(//회전
+        //    glm::cos(glm::radians(rotation)), -glm::sin(glm::radians(rotation)), 0,
+        //    glm::sin(glm::radians(rotation)), glm::cos(glm::radians(rotation)), 0,
+        //    0, 0, 1
+        //);
+        transformuse.rotation = rotation_A;
         for (int i = 0; i < 360; i++)
         {
             transformedCircle[i].pos = transformuse.translate * transformuse.rotation * transformuse.scale * circle[i].pos;
