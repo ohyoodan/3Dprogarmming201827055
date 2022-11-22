@@ -21,15 +21,19 @@ bool isFirstFrame = true;
 
 struct Vertex
 {
-    glm::vec3 pos;
+    //glm::vec3 pos;
+    vec3 pos;
     float r, g, b, a;
 };
 
 struct Transform
 {
-    glm::mat3 translate;
+    /*glm::mat3 translate;
     glm::mat3 scale;
-    glm::mat3 rotation;
+    glm::mat3 rotation;*/
+    mat3 translate;
+    mat3 scale;
+    mat3 rotation;
 };
 
 
@@ -91,9 +95,11 @@ void Init()
     int i = 0;
     for (float theta = 0; theta < 360; theta += 72)
     {
-        mat3 star;
-        star[i].pos.x = -glm::sin(glm::radians(theta)) * 0.5f;
-        star[i].pos.y = glm::cos(glm::radians(theta)) * 0.5f;
+        mat3 star_m;
+        star_m.Rotateinput(theta);
+        
+        star[i].pos.x = (star_m * -1) * 0.5f;//-glm::sin(glm::radians(theta)) * 0.5f;
+        star[i].pos.y =  star_m * 0.5f;//glm::cos(glm::radians(theta)) * 0.5f;
         star[i].pos.z = 1.0f;
 
         star[i].r = 0.3f;
@@ -110,8 +116,10 @@ void Init()
     // 원 생성
     for (int theta = 0; theta < 360; theta++)
     {
-        circle[theta].pos.x = -glm::sin(glm::radians((float)theta)) * 0.5;
-        circle[theta].pos.y = glm::cos(glm::radians((float)theta)) * 0.5;
+        mat3 circle_m;
+        circle_m.Rotateinput(theta);
+        circle[theta].pos.x = (circle_m * -1)*0.5f;//-glm::sin(glm::radians((float)theta)) * 0.5;
+        circle[theta].pos.y = circle_m * 0.5f;//glm::cos(glm::radians((float)theta)) * 0.5;
         circle[theta].pos.z = 1.0f;
 
         circle[theta].r = 0.3f;
@@ -124,7 +132,7 @@ void Init()
 
 
     //트랜스폼 초기화 (기본형 제공)
-    transform.translate = glm::mat3(
+    /*transform.translate = glm::mat3(
         1, 0, 0,
         0, 1, 0,
         0, 0, 1
@@ -138,7 +146,8 @@ void Init()
         1, 0, 0,
         0, 1, 0,
         0, 0, 1
-    );
+    );*/
+
 
 
 }

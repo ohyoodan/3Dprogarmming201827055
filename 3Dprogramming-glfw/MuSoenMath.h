@@ -405,6 +405,12 @@ namespace MuSoenMath {
 		  ~vec3() {
 
 		  }
+		  void input_x(float a) {
+			  matrix3[0][0] = a;
+		  }
+		  void input_y(float a) {
+			  matrix3[0][1] = a;
+		  }
 
 		  void transpose() {
 
